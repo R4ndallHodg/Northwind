@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="NorthwindModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Prestamo">
+          <Key>
+            <PropertyRef Name="IdPrestamo" />
+          </Key>
+          <Property Name="IdPrestamo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Mes" Type="int" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="Principal" Type="float" />
+          <Property Name="Cuota" Type="float" />
+          <Property Name="Interes" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="TasaInteres" Type="decimal" Precision="9" Scale="4" />
+          <Property Name="AportePrincipal" Type="float" />
+          <Property Name="SaldoFinal" Type="float" />
+        </EntityType>
+        <Function Name="EnviarCorreo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="TablaAmortizacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Principal" Type="float" Mode="In" />
+          <Parameter Name="Mes" Type="int" Mode="In" />
+          <Parameter Name="Interes" Type="float" Mode="In" />
+        </Function>
+        <EntityContainer Name="NorthwindModelStoreContainer">
+          <EntitySet Name="Prestamo" EntityType="Self.Prestamo" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NorthwindModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Prestamo">
+          <Key>
+            <PropertyRef Name="IdPrestamo" />
+          </Key>
+          <Property Name="IdPrestamo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Mes" Type="Int32" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="Principal" Type="Double" />
+          <Property Name="Cuota" Type="Double" />
+          <Property Name="Interes" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="TasaInteres" Type="Decimal" Precision="9" Scale="4" />
+          <Property Name="AportePrincipal" Type="Double" />
+          <Property Name="SaldoFinal" Type="Double" />
+        </EntityType>
+        <EntityContainer Name="NorthwindEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Prestamo" EntityType="Self.Prestamo" />
+          <FunctionImport Name="EnviarCorreo" />
+          <FunctionImport Name="TablaAmortizacion">
+            <Parameter Name="Principal" Mode="In" Type="Double" />
+            <Parameter Name="Mes" Mode="In" Type="Int32" />
+            <Parameter Name="Interes" Mode="In" Type="Double" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NorthwindModelStoreContainer" CdmEntityContainer="NorthwindEntities">
+          <EntitySetMapping Name="Prestamo">
+            <EntityTypeMapping TypeName="NorthwindModel.Prestamo">
+              <MappingFragment StoreEntitySet="Prestamo">
+                <ScalarProperty Name="IdPrestamo" ColumnName="IdPrestamo" />
+                <ScalarProperty Name="Mes" ColumnName="Mes" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Principal" ColumnName="Principal" />
+                <ScalarProperty Name="Cuota" ColumnName="Cuota" />
+                <ScalarProperty Name="Interes" ColumnName="Interes" />
+                <ScalarProperty Name="TasaInteres" ColumnName="TasaInteres" />
+                <ScalarProperty Name="AportePrincipal" ColumnName="AportePrincipal" />
+                <ScalarProperty Name="SaldoFinal" ColumnName="SaldoFinal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="EnviarCorreo" FunctionName="NorthwindModel.Store.EnviarCorreo" />
+          <FunctionImportMapping FunctionImportName="TablaAmortizacion" FunctionName="NorthwindModel.Store.TablaAmortizacion" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

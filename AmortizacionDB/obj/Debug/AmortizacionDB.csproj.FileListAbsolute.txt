@@ -1,0 +1,15 @@
+H:\TareasRandom\AmortizacionDB\bin\Debug\AmortizacionDB.exe.config
+H:\TareasRandom\AmortizacionDB\bin\Debug\AmortizacionDB.exe
+H:\TareasRandom\AmortizacionDB\bin\Debug\AmortizacionDB.pdb
+H:\TareasRandom\AmortizacionDB\bin\Debug\EntityFramework.dll
+H:\TareasRandom\AmortizacionDB\bin\Debug\EntityFramework.SqlServer.dll
+H:\TareasRandom\AmortizacionDB\bin\Debug\EntityFramework.xml
+H:\TareasRandom\AmortizacionDB\bin\Debug\EntityFramework.SqlServer.xml
+H:\TareasRandom\AmortizacionDB\obj\Debug\AmortizacionDB.csprojAssemblyReference.cache
+H:\TareasRandom\AmortizacionDB\obj\Debug\AmortizacionDB.Form1.resources
+H:\TareasRandom\AmortizacionDB\obj\Debug\AmortizacionDB.Properties.Resources.resources
+H:\TareasRandom\AmortizacionDB\obj\Debug\AmortizacionDB.csproj.GenerateResource.cache
+H:\TareasRandom\AmortizacionDB\obj\Debug\AmortizacionDB.csproj.CoreCompileInputs.cache
+H:\TareasRandom\AmortizacionDB\obj\Debug\AmortizacionDB.csproj.CopyComplete
+H:\TareasRandom\AmortizacionDB\obj\Debug\AmortizacionDB.exe
+H:\TareasRandom\AmortizacionDB\obj\Debug\AmortizacionDB.pdb

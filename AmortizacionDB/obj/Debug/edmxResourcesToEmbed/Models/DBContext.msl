@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NorthwindModelStoreContainer" CdmEntityContainer="NorthwindEntities">
+    <EntitySetMapping Name="Prestamo">
+      <EntityTypeMapping TypeName="NorthwindModel.Prestamo">
+        <MappingFragment StoreEntitySet="Prestamo">
+          <ScalarProperty Name="IdPrestamo" ColumnName="IdPrestamo" />
+          <ScalarProperty Name="Mes" ColumnName="Mes" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Principal" ColumnName="Principal" />
+          <ScalarProperty Name="Cuota" ColumnName="Cuota" />
+          <ScalarProperty Name="Interes" ColumnName="Interes" />
+          <ScalarProperty Name="TasaInteres" ColumnName="TasaInteres" />
+          <ScalarProperty Name="AportePrincipal" ColumnName="AportePrincipal" />
+          <ScalarProperty Name="SaldoFinal" ColumnName="SaldoFinal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="EnviarCorreo" FunctionName="NorthwindModel.Store.EnviarCorreo" />
+    <FunctionImportMapping FunctionImportName="TablaAmortizacion" FunctionName="NorthwindModel.Store.TablaAmortizacion" />
+  </EntityContainerMapping>
+</Mapping>

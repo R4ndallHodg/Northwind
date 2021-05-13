@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NorthwindModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Prestamo">
+    <Key>
+      <PropertyRef Name="IdPrestamo" />
+    </Key>
+    <Property Name="IdPrestamo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Mes" Type="int" />
+    <Property Name="Fecha" Type="date" />
+    <Property Name="Principal" Type="float" />
+    <Property Name="Cuota" Type="float" />
+    <Property Name="Interes" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="TasaInteres" Type="decimal" Precision="9" Scale="4" />
+    <Property Name="AportePrincipal" Type="float" />
+    <Property Name="SaldoFinal" Type="float" />
+  </EntityType>
+  <Function Name="EnviarCorreo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="TablaAmortizacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Principal" Type="float" Mode="In" />
+    <Parameter Name="Mes" Type="int" Mode="In" />
+    <Parameter Name="Interes" Type="float" Mode="In" />
+  </Function>
+  <EntityContainer Name="NorthwindModelStoreContainer">
+    <EntitySet Name="Prestamo" EntityType="Self.Prestamo" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
