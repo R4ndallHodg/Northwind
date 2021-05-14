@@ -16,11 +16,14 @@
   </EntityType>
   <EntityContainer Name="NorthwindEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Prestamo" EntityType="Self.Prestamo" />
-    <FunctionImport Name="EnviarCorreo" />
+    <FunctionImport Name="EnviarCorreo">
+      <Parameter Name="correo" Mode="In" Type="String" />
+    </FunctionImport>
     <FunctionImport Name="TablaAmortizacion">
-      <Parameter Name="Principal" Mode="In" Type="Double" />
+      <Parameter Name="Principal" Mode="In" Type="Decimal" />
       <Parameter Name="Mes" Mode="In" Type="Int32" />
-      <Parameter Name="Interes" Mode="In" Type="Double" />
+      <Parameter Name="Interes" Mode="In" Type="Decimal" />
+      <Parameter Name="Incremento" Mode="In" Type="Decimal" />
     </FunctionImport>
   </EntityContainer>
 </Schema>

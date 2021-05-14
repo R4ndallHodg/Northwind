@@ -14,11 +14,14 @@
     <Property Name="AportePrincipal" Type="float" />
     <Property Name="SaldoFinal" Type="float" />
   </EntityType>
-  <Function Name="EnviarCorreo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="EnviarCorreo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="correo" Type="nvarchar" Mode="In" />
+  </Function>
   <Function Name="TablaAmortizacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="Principal" Type="float" Mode="In" />
+    <Parameter Name="Principal" Type="decimal" Mode="In" />
     <Parameter Name="Mes" Type="int" Mode="In" />
-    <Parameter Name="Interes" Type="float" Mode="In" />
+    <Parameter Name="Interes" Type="decimal" Mode="In" />
+    <Parameter Name="Incremento" Type="decimal" Mode="In" />
   </Function>
   <EntityContainer Name="NorthwindModelStoreContainer">
     <EntitySet Name="Prestamo" EntityType="Self.Prestamo" Schema="dbo" store:Type="Tables" />

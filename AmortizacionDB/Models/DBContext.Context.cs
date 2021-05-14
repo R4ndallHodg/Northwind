@@ -29,16 +29,20 @@ namespace AmortizacionDB.Models
     
         public virtual DbSet<Prestamo> Prestamo { get; set; }
     
-        public virtual int EnviarCorreo()
+        public virtual int EnviarCorreo(string correo)
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("EnviarCorreo");
+            var correoParameter = correo != null ?
+                new ObjectParameter("correo", correo) :
+                new ObjectParameter("correo", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("EnviarCorreo", correoParameter);
         }
     
-        public virtual int TablaAmortizacion(Nullable<double> principal, Nullable<int> mes, Nullable<double> interes)
+        public virtual int TablaAmortizacion(Nullable<decimal> principal, Nullable<int> mes, Nullable<decimal> interes, Nullable<decimal> incremento)
         {
             var principalParameter = principal.HasValue ?
                 new ObjectParameter("Principal", principal) :
-                new ObjectParameter("Principal", typeof(double));
+                new ObjectParameter("Principal", typeof(decimal));
     
             var mesParameter = mes.HasValue ?
                 new ObjectParameter("Mes", mes) :
@@ -46,9 +50,13 @@ namespace AmortizacionDB.Models
     
             var interesParameter = interes.HasValue ?
                 new ObjectParameter("Interes", interes) :
-                new ObjectParameter("Interes", typeof(double));
+                new ObjectParameter("Interes", typeof(decimal));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("TablaAmortizacion", principalParameter, mesParameter, interesParameter);
+            var incrementoParameter = incremento.HasValue ?
+                new ObjectParameter("Incremento", incremento) :
+                new ObjectParameter("Incremento", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("TablaAmortizacion", principalParameter, mesParameter, interesParameter, incrementoParameter);
         }
     }
 }
